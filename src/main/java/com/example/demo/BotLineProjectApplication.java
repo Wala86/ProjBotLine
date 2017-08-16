@@ -16,11 +16,11 @@ public class BotLineProjectApplication {
 		SpringApplication.run(BotLineProjectApplication.class, args);
 	}
 
-	@EventMapping
-	public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-		System.out.println("event: " + event);
-		return new TextMessage(event.getMessage().getText());
-	}
+	if (event.getMessage().getText() == "Hi" || event.getMessage().getText().equals("Hi")) {
+ 			return new TextMessage("Hello, How are you?");
+ 		} else {
+ 			return new TextMessage(event.getMessage().getText());
+		}
 
 	@EventMapping
 	public void handleDefaultMessageEvent(Event event) {
